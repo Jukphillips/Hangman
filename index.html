@@ -9,13 +9,19 @@
 </head>
 <body>
     <title>Hangman</title>
-    <h1>Hangman</h1>
-    <h2> Selected Catergory </h2> <!-- Drop Drownlist-->
-    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius non assumenda quasi excepturi, 
-        sequi atque nemo tempore accusamus veniam nam commodi? 
-        Quos corrupti sed inventore laboriosam veniam consequatur veritatis facilis.</h4>
+    <h1>Hangman</h1> 
+    <h4> Choose a catergory that you feel the most famliar with. After choosing your catergory, you will be given a word to guess. Use your keyboard or the alphebet letters
+        below to guess the word before you complete the hangman drawing. If you need help press the "hint" button below to recieve a hint about your word! Don't forget to have FUN!
+    </h4> <!-- Description of how to play game -->
+    <form> <!-- Drop Drownlist-->
+        <label> Select a Word Catergory: </label>
+        <select id="chooseCat">
 
+        </select>
+        <input type="submit" value="submit">
+    </form>
     <canvas>Hangman character</canvas>
+    
     <button> Hint </button>
     <button> Reset </button>
 
