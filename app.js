@@ -4,9 +4,11 @@ const buttonHint = document.getElementById('hint');
 const reset = document.getElementById('reset');
 const choosenCate = document.getElementById('submitBtn')
 const catergorySubmitBtn = document.getElementById('submitBtn')
+const dropDownList = document.getElementById('dropDown')
 let lives = 10;
 let response = '';
 let hint = '';
+let chooseObj;
 const hangman = document.getElementById("hangStick")
 
 // create a seperate catergory array that also connects to question objects that 
@@ -25,7 +27,7 @@ let questions = [
 {
     catergory: "Cars",
     word: "Ford Mustang",
-    hint: "Domestic v8 brand"
+    hint: "Domestic v8 sports car brand"
 },
 { 
     catergory: "Food",
@@ -58,11 +60,38 @@ for( let i = 0; i < arrCate.length; i++) {
 }
 };
 
+function beganGame(){
+    console.log(chooseObj)
+    // removing html elements from page to display game. This will generate several other funtions including  removedisplayItems(),
+    //displayGameText(), alphabetGenerator(), game(), 
+}
+
+// compares question array objects to selected catergory and randomly chooses a question/hint pair in catergory to began game
 function selectCatergory() {
-    console.log(chooseCat.value)
     event.preventDefault();
+    console.log(chooseCat.value)
+    console.log(cate) 
+    let element;  
+    if (cate.hasOwnProperty(chooseCat.value)){
+        element  = cate[chooseCat.value]
+        let randomObj = Math.floor(Math.random() * element.length)
+        chooseObj = element[randomObj]
+        beganGame()
+        
+    } else {
+        alert('error')
+    };    
 }
 
 
+
+
+
 printCatergory()
-// figure out how to randomly select a word from one of our catergories that's equals our 
+// figure out how to randomly select a word from one of our catergories that's equals our selected 
+
+// take response from cate variable and compare it to our select value variable. output should be all the objects that 
+// equate to our selected word. we then randomly sort through that selection to get a word and hint combination. 
+
+// after this we will remove h4 id=desc from display and replace with 'Your chosen catergory is _catergorySelected_'
+// Also generate click alphabet so user's without a keyboard or mobile users can expeience high level of acesscibility

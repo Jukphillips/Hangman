@@ -1,8 +1,10 @@
 * {
-    background-color: rgb(77, 11, 77);
-    color: white;
+    background-color: #FF7396;
+    color: #FFFFDE;
 }
 
 button {
    border-color: white; 
 }
+
+/* design inspo https://hangmanwordgame.com/?fca=1&success=0#/ */
