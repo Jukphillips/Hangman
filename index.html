@@ -13,13 +13,20 @@
     <h4 id="desc"> Choose a catergory that you feel the most famliar with. After choosing your catergory, you will be given a word to guess. Use your keyboard or the alphebet letters
         below to guess the word before you complete the hangman drawing. If you need help press the "hint" button below to recieve a hint about your word! Don't forget to have FUN!
     </h4> <!-- Description of how to play game -->
-    <form> <!-- Drop Drownlist-->
+    <form id="dropDown"> <!-- Drop Drownlist-->
         <label> Select a Word Catergory: </label>
         <select id="chooseCat">
             
         </select>
         <button id="submitBtn" onClick="selectCatergory()"> Submit </button>
     </form>
+    <section id="alphabets">
+
+    </section>
+    <section id="gameDisplay">
+
+    </section>
+
     <canvas id="hangStick">Hangman character</canvas>
 
     <button class="button" id="hint"> Hint </button>

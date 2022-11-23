@@ -9,6 +9,7 @@ let lives = 10;
 let response = '';
 let hint = '';
 let chooseObj;
+let wordDisplay = [];
 const hangman = document.getElementById("hangStick")
 
 // create a seperate catergory array that also connects to question objects that 
@@ -62,8 +63,30 @@ for( let i = 0; i < arrCate.length; i++) {
 
 function beganGame(){
     console.log(chooseObj)
+    removeDisplayItems()
+    displayGameText()
+    alphabetGenerator()
     // removing html elements from page to display game. This will generate several other funtions including  removedisplayItems(),
-    //displayGameText(), alphabetGenerator(), game(), 
+    //displayGameText() , alphabetGenerator(), game(), 
+}
+
+// removes catergory selection and game rules from the screen. 
+function removeDisplayItems() {
+    desc.style.display = 'none';
+    dropDownList.style.display = 'none';
+    
+}
+
+function displayGameText() {
+    //first display choosen catergory
+    // then display underscore anwser portion seens in sandbox version
+    // display lives
+    let wordArray = chooseObj.word.split("")
+}
+
+function alphabetGenerator() {
+    // generator our on site alphabet buttons so users can either type buttons or press the button on 
+    // website. When characters press buttons they'll change to x out versions of said character 
 }
 
 // compares question array objects to selected catergory and randomly chooses a question/hint pair in catergory to began game
