@@ -1,10 +1,12 @@
 const desc = document.getElementById('desc');
+const alphaBtn = document.getElementById("alphabets")
 const chooseCat = document.getElementById('chooseCat');
 const buttonHint = document.getElementById('hint');
 const reset = document.getElementById('reset');
 const choosenCate = document.getElementById('submitBtn')
 const catergorySubmitBtn = document.getElementById('submitBtn')
 const dropDownList = document.getElementById('dropDown')
+const gameDisplay = document.getElementById('gameDisplay')
 let lives = 10;
 let response = '';
 let hint = '';
@@ -65,7 +67,9 @@ function beganGame(){
     console.log(chooseObj)
     removeDisplayItems()
     displayGameText()
-    alphabetGenerator()
+    alphaBtn.innerHtml = alphabetGenerator()
+
+
     // removing html elements from page to display game. This will generate several other funtions including  removedisplayItems(),
     //displayGameText() , alphabetGenerator(), game(), 
 }
@@ -79,16 +83,46 @@ function removeDisplayItems() {
 
 function displayGameText() {
     //first display choosen catergory
-    // then display underscore anwser portion seens in sandbox version
-    // display lives
+    gameDisplay.textContent = "The choosen catergory is " + chooseObj.catergory
+
+    // then display underscore anwser portion seen in sandbox version
+    let d = document.createElement("div")
     let wordArray = chooseObj.word.split("")
+    console.log(wordArray[1])
+    console.log(chooseObj.word.length)
+
+    for (var i = 0; i < chooseObj.word.length; i++){
+        if (wordArray[i] !== "-"){
+            wordDisplay.push("_")
+        } else {
+            wordDisplay.push(" ")
+        }
+    
+    }
+    console.log(wordDisplay)
+    d.innerHTML = wordDisplay.join(" ")
+    gameDisplay.appendChild(d)
+
+    // display lives
+    let l = document.createElement("p")
+    l.innerHTML = 'You have ' + lives + ' left';
+    gameDisplay.appendChild(l)
+    return
+
 }
 
 function alphabetGenerator() {
     // generator our on site alphabet buttons so users can either type buttons or press the button on 
     // website. When characters press buttons they'll change to x out versions of said character 
-}
+    const alpha = Array.from(Array(26)).map((e,i) => i + 65);
+    const alphabet = alpha.map((x) => String.fromCharCode((x)))
+    console.log(alphabet)
 
+    for(let i = 0; i < alphabet.length; i++){
+        alphabet[i].splice([i], ) 
+    }
+    // return alphabet
+}
 // compares question array objects to selected catergory and randomly chooses a question/hint pair in catergory to began game
 function selectCatergory() {
     event.preventDefault();
