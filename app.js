@@ -63,11 +63,30 @@ for( let i = 0; i < arrCate.length; i++) {
 }
 };
 
+// compares question array objects to selected catergory and randomly chooses a question/hint pair in catergory to began game
+function selectCatergory() {
+    event.preventDefault();
+    console.log(chooseCat.value)
+    console.log(cate) 
+    let element;  
+    if (cate.hasOwnProperty(chooseCat.value)){
+        element  = cate[chooseCat.value]
+        let randomObj = Math.floor(Math.random() * element.length)
+        chooseObj = element[randomObj]
+        beganGame()
+        
+    } else {
+        alert('error')
+    };    
+}
+
+
 function beganGame(){
     console.log(chooseObj)
     removeDisplayItems()
     displayGameText()
-    alphaBtn.innerHtml = alphabetGenerator()
+    alphabetGenerator()
+    game()
 
 
     // removing html elements from page to display game. This will generate several other funtions including  removedisplayItems(),
@@ -107,6 +126,8 @@ function displayGameText() {
     let l = document.createElement("p")
     l.innerHTML = 'You have ' + lives + ' left';
     gameDisplay.appendChild(l)
+
+    //give hangman a canvas a border
     return
 
 }
@@ -116,31 +137,26 @@ function alphabetGenerator() {
     // website. When characters press buttons they'll change to x out versions of said character 
     const alpha = Array.from(Array(26)).map((e,i) => i + 65);
     const alphabet = alpha.map((x) => String.fromCharCode((x)))
-    console.log(alphabet)
 
-    for(let i = 0; i < alphabet.length; i++){
-        alphabet[i].splice([i], ) 
-    }
-    // return alphabet
-}
-// compares question array objects to selected catergory and randomly chooses a question/hint pair in catergory to began game
-function selectCatergory() {
-    event.preventDefault();
-    console.log(chooseCat.value)
-    console.log(cate) 
-    let element;  
-    if (cate.hasOwnProperty(chooseCat.value)){
-        element  = cate[chooseCat.value]
-        let randomObj = Math.floor(Math.random() * element.length)
-        chooseObj = element[randomObj]
-        beganGame()
-        
-    } else {
-        alert('error')
-    };    
+    //prints out an innerHtml script to add buttons with all our alphabet letters individually to our app
+    alphabet.forEach(function(letter){
+        alphaBtn.innerHTML += '<button class="test" id="'  + letter + '">'+ letter + '</button'
+    })
+    
 }
 
+function game(){
+    // connect buttons and keystrokes to an evenlistener that compares the values you pressed to those in our choose(n)Obj.
+    
+    // if the value is the same then we will dislay that letter over our anwser _'s and grey out the choosen button. we'd 
+    // also whenever our correct guesses equal the lenght of choosenOBj.lenght then we commence gameOver()  
 
+    //if the value is different then we will grey out that letter/stop listening to that value letter(turn off eventlistener)
+    // we will began creating our hangman drawing using drawHangman()
+    // we will remove one life
+
+
+}
 
 
 
