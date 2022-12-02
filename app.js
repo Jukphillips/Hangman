@@ -12,6 +12,8 @@ let response = '';
 let hint = '';
 let chooseObj;
 let wordDisplay = [];
+let usedLets = []
+let chosBtnPres = '';
 const hangman = document.getElementById("hangStick")
 
 // create a seperate catergory array that also connects to question objects that 
@@ -144,9 +146,16 @@ function alphabetGenerator() {
     })
     
 }
+ 
+
 
 function game(){
-    // connect buttons and keystrokes to an evenlistener that compares the values you pressed to those in our choose(n)Obj.
+    alphaBtn.addEventListener("click", function btnPress(event){
+        document.getElementById(event.path[0].id).className = "usedLet"
+        chosBtnPres = event.path[0].innerHTML
+        console.log(chosBtnPres)
+    } )
+    // --connect buttons and keystrokes to an eventlistener that compares the values you pressed to those in our choose(n)Obj.
     
     // if the value is the same then we will dislay that letter over our anwser _'s and grey out the choosen button. we'd 
     // also whenever our correct guesses equal the lenght of choosenOBj.lenght then we commence gameOver()  

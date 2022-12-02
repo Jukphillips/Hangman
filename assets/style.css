@@ -10,4 +10,8 @@ button {
 .test {
     margin: 5px;
 }
+
+.usedLet {
+    border: 1px solid black;
+}
 /* design inspo https://hangmanwordgame.com/?fca=1&success=0#/ */
